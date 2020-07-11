@@ -5,8 +5,10 @@ FROM python:3
 # This is useful for receiving timely log messages and avoiding situations where 
 # the application crashes without emitting a relevant message due to the message being "stuck" in a buffer.
 ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
-WORKDIR /code
-COPY requirements.txt /code/
+ENV DJANGO_SETTINGS_MODULE=mysite.settings
+WORKDIR /app
+COPY mysite mysite
+COPY manage.py /app/
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
-COPY . /code/
+COPY . /app/
