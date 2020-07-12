@@ -9,8 +9,9 @@ docker-compose up
 After initial the project
 
 ```
-docker exec -it container_id python manage.py migrate
-docker exec -it container_id python manage.py createsuperuser
+
+docker exec -it container_id python /app/manage.py migrate
+docker exec -it container_id python /app/manage.py createsuperuser
 ```
 
 # Concepts
@@ -30,3 +31,10 @@ Pros:
 
 Production setting reference:
 https://stackoverflow.com/questions/10664244/django-how-to-manage-development-and-production-settings/54292952#54292952
+
+# References:
+
+## Docker and Django sample project
+
+1.  https://github.com/devartis/djangodocker
+2.  https://github.com/philgyford/django-docker-example
