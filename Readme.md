@@ -1,3 +1,10 @@
+# Introduction
+
+This project is following the official django with a demo project, and I am trying to dockerize it.
+The purpose is just for learn. You can see the tutorial link here:
+
+https://docs.djangoproject.com/en/2.2/intro/tutorial01/
+
 # Set up & running
 
 Run the project
@@ -16,6 +23,8 @@ docker exec -it container_id python /app/manage.py createsuperuser
 
 # Concepts
 
+Some concepts or terms that I learned from this project and I think any python developer should learn it.
+
 ## WSGI
 
 Intro:
@@ -31,6 +40,10 @@ Pros:
 
 Production setting reference:
 https://stackoverflow.com/questions/10664244/django-how-to-manage-development-and-production-settings/54292952#54292952
+
+## Django admin interface
+
+1.  Provide interface to model so that we can do CRUD to the data, in this project it is `Question` model
 
 # References:
 
