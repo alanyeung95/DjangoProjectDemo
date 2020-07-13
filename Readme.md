@@ -21,6 +21,62 @@ docker exec -it container_id python /app/manage.py migrate
 docker exec -it container_id python /app/manage.py createsuperuser
 ```
 
+# Aritecture
+
+## Apps (polls)
+
+The following folder is created by the command
+
+```
+python manage.py startapp polls
+```
+
+```
+polls/
+__init__.py
+admin.py
+apps.py
+    migrations/
+    __init__.py
+models.py
+tests.py
+views.py
+```
+
+## Migrations
+
+The command `python manage.py makemigrations polls` will generate `0001_initial.py` and the following output
+
+```
+Migrations for 'polls':
+  polls/migrations/0001_initial.py:
+    - Create model Choice
+    - Create model Question
+    - Add field question to choice
+```
+
+And the `python manage.py migrate` command synchronizing the changes you made to your models with the schema in the database.
+
+```
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, polls, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying polls.0001_initial... OK
+```
+
+Migrations are very powerful and let you change your models over time, as you develop your project, without the need to delete your database or tables and make new ones - it specializes in upgrading your database live, without losing data. We’ll cover them in more depth in a later part of the tutorial, but for now, remember the three-step guide to making model changes:
+
+    Change your models (in models.py).
+    Run python manage.py makemigrations to create migrations for those changes
+    Run python manage.py migrate to apply those changes to the database.
+
+## Templates
+
+1. Storing page’s design view
+2. Django will look for templates in there.
+3. get data (context) from views.py
+
 # Concepts
 
 Some concepts or terms that I learned from this project and I think any python developer should learn it.
@@ -40,6 +96,10 @@ Pros:
 
 Production setting reference:
 https://stackoverflow.com/questions/10664244/django-how-to-manage-development-and-production-settings/54292952#54292952
+
+## \_\_init\_\_.py:
+
+An empty file that tells Python that this directory should be considered a Python package. If you’re a Python beginner, read more about packages in the official Python docs.
 
 ## Django admin interface
 
