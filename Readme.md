@@ -16,9 +16,12 @@ docker-compose up
 After initial the project
 
 ```
-
 docker exec -it container_id python /app/manage.py migrate
 docker exec -it container_id python /app/manage.py createsuperuser
+
+# Use shell to test the project or access to the model
+# ref: https://docs.djangoproject.com/en/2.2/intro/tutorial02/
+docker exec -it 036bcd0cd1d3  python /app/manage.py shell
 ```
 
 # Aritecture
